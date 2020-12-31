@@ -1,0 +1,9 @@
+X48 : HP48 Emulator for Unix/X11 
+
+  Iñigo Serna (imaseroi@bi.ehu.es)
+  Eddie C. Dost (edc@dressler.de)
+
+PSPX48 : Porting on PSP
+
+  Ludovic Jacomme (zx81.zx81@gmail.com)
+

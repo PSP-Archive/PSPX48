@@ -1,0 +1,47 @@
+1.1.0
+
+- Now compatible with custom firmwares 3.x and PSP-slim
+- Bug fix and code cleaning
+- New help menu
+
+1.0.6
+
+- Save state is now done using zlib so ram file size is smaller 
+  and as a consequence, it is much faster to save
+- Bug fix (may display stange characters in the emulator menu)
+
+1.0.5
+
+- Add new beautiful icons and background designed by Jer666 !
+- New user interface with menus and usefull options
+- Display battery usage
+- Add Help window with all PSP shortkeys
+- Save configuration file option
+- Screenshot image option
+- PNG images instead of BMP (smaller images)
+- Toogle between analog and digital pad option
+- New keyboard handler and new mapping
+
+1.0.4
+
+- Load external application files and libraries
+- (with .48 and .lib file extentions)
+- Hardware reset of the HP48
+- (inside the application file selector window)
+
+1.0.3
+
+- Bug fix for FW 2.0 (freeze at startup)
+
+1.0.2
+
+- Some minor bugs have been fixed in the keyboard handler
+
+1.0.1
+
+- First release Working with 1.5 FW
+- Improve keyboard mapping
+
+1.0.0
+
+- Initial beta release 

@@ -1,0 +1,63 @@
+#
+# x48 port on PSP 
+#
+# Copyright (C) 2006 Ludovic Jacomme (ludovic.jacomme@gmail.com)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+#
+TARGET = pspx48
+OBJS = psp_main.o psp_lcd.o \
+       psp_menu.o psp_menu_help.o \
+       psp_battery.o \
+       actions.o device.o disasm.o emulate.o global.o \
+       init.o lcd.o psp_main.o memory.o \
+       register.o romio.o binio.o timer.o version.o \
+       serial.o  \
+       psp_kbd.o psp_gr.o psp_pg.o  psp_fmgr.o psp_font.o
+
+LIBS=-lpsppower -lpng -lz -lm
+
+INCDIR = 
+DEFAULT_CFLAGS=
+MORE_CFLAGS = -I. \
+-DPSPX48_VERSION=\"$(PSPX48_VERSION)\" \
+-O3
+
+# -DNO_STDIO_REDIRECT \
+
+PSP_FW_VERSION=15
+PSPX48_VERSION=1.1.0
+
+CFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
+CXXFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS) -fno-exceptions -fno-rtti
+
+EXTRA_TARGETS = EBOOT.PBP
+PSP_EBOOT_TITLE = PSPX48-v$(PSPX48_VERSION)-fw3x
+PSP_EBOOT_ICON= pspx48.png
+PSP_EBOOT_PIC1 = pspx48-pic.png
+
+include $(PSPSDK)/lib/build.mak
+
+all: SCEkxploit
+
+install: all
+	@mkdir -p /media/usbdisk/psp/game150/__SCE__pspx48/
+	@mkdir -p /media/usbdisk/psp/game150/%__SCE__pspx48/
+	cp __SCE__pspx48/EBOOT.PBP /media/usbdisk/psp/game150/__SCE__pspx48/
+	cp %__SCE__pspx48/EBOOT.PBP /media/usbdisk/psp/game150/%__SCE__pspx48/
+
+realclean:
+	/bin/rm -f $(OBJS) EBOOT.PBP PARAM.SFO
+
