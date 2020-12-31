@@ -687,7 +687,7 @@ decode_group_1(void)
   }
 }
 
-inline int
+int
 decode_8_thru_f(int op1)
 {
   int op2, op3, op4, op5, op6;
@@ -1953,7 +1953,7 @@ decode_8_thru_f(int op1)
   }
 }
 
-inline int
+int
 step_instruction(void)
 {
   int op0, op1, op2, op3;
@@ -2204,7 +2204,7 @@ step_instruction(void)
   return stop;
 }
 
-inline void
+void
 schedule(void)
 {
   t1_t2_ticks                ticks;
